@@ -4,14 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dhanu Dharvin B | Professional Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Orbitron', sans-serif;
+      font-family: 'Times New Roman', Times, serif;
     }
 
     body {
@@ -19,6 +17,22 @@
       color: #f0f0f0;
       line-height: 1.8;
       font-size: 18px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    #magic-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    canvas {
+      display: block;
     }
 
     .container {
@@ -26,13 +40,34 @@
       max-width: 1000px;
       margin: auto;
       padding: 20px;
+      position: relative;
+      z-index: 1;
     }
 
     header {
       background: transparent;
       color: white;
-      padding: 40px 0 20px;
       text-align: center;
+      padding: 40px 0 20px;
+    }
+
+    nav {
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: #4facfe;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00f2ff;
+      text-decoration: underline;
     }
 
     .profile-photo img {
@@ -79,11 +114,11 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
       border: 1px solid #00f2ff33;
       backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
     }
 
     .card:hover {
       transform: scale(1.02);
-      transition: transform 0.3s ease;
     }
 
     ul {
@@ -113,6 +148,7 @@
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
+      transition: transform 0.3s ease;
     }
 
     .resume a:hover {
@@ -125,15 +161,9 @@
       text-align: center;
       padding: 20px 0;
       border-top: 2px solid #4facfe;
-    }
-
-    a {
-      color: #4facfe;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      margin-top: 50px;
+      position: relative;
+      z-index: 1;
     }
 
     h3 {
@@ -159,106 +189,203 @@
 </head>
 <body>
 
-  <header>
-    <div class="container header-flex">
-      <div class="profile-photo">
-        <img src="solo1.jpg" alt="Dhanu Dharvin B" />
-      </div>
-      <div class="header-text">
-        <h1>Dhanu Dharvin B</h1>
-        <p>Aspiring VLSI Engineer | Embedded Systems Enthusiast</p>
-      </div>
+<!-- Magic background -->
+<canvas id="magic-background"></canvas>
+
+<!-- Navigation bar -->
+<nav>
+  <div class="container">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header>
+  <div class="container">
+    <div class="profile-photo">
+      <img src="solo1.jpg" alt="Dhanu Dharvin B" />
     </div>
-  </header>
-
-  <section class="about">
-    <div class="container card">
-      <h2>About Me</h2>
-      <p>I am Dhanu Dharvin from Pollachi, currently pursuing B.E. in Electronics and Communication Engineering at Saveetha Engineering College with a CGPA of 9.20 (till 5th semester). My interests lie in VLSI Design, Embedded Systems, and Simulation Projects.</p>
-      <p>I have hands-on experience with Cadence Virtuoso, LTSpice, Proteus, and Arduino IDE. My portfolio includes projects such as a Human/Line Following Robot, Bluetooth RC Car, and Obstacle Avoiding Robot. I value discipline, punctuality, and professional presentation in all that I do.</p>
+    <div class="header-text">
+      <h1>Dhanu Dharvin B</h1>
+      <p>Aspiring VLSI Engineer | Embedded Systems Enthusiast</p>
     </div>
-  </section>
+  </div>
+</header>
 
-  <section class="skills">
-    <div class="container card">
-      <h2>Skills</h2>
-
-      <div class="card">
-        <h3><i class="fas fa-code"></i> Programming Languages</h3>
-        <ul>
-          <li>C</li>
-          <li>Python</li>
-          <li>Java (Basic)</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
-        <ul>
-          <li>Cadence Virtuoso (VLSI)</li>
-          <li>LTSpice, Scilab (Simulation)</li>
-          <li>Proteus, Arduino IDE (Embedded Systems)</li>
-          <li>Vivado (HDL - Verilog/VHDL basics)</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3><i class="fas fa-microchip"></i> Projects & Hardware</h3>
-        <ul>
-          <li>Human/Line Following Robot</li>
-          <li>Bluetooth Controlled RC Car</li>
-          <li>Obstacle Avoiding Robot</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3><i class="fas fa-brain"></i> Soft Skills</h3>
-        <ul>
-          <li>100% Attendance Record</li>
-          <li>Time Management & Punctuality</li>
-          <li>Leadership & Volunteering</li>
-          <li>Workshop and Seminar Coordination</li>
-        </ul>
-      </div>
+<section id="about">
+  <div class="container card">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>I'm Dhanu Dharvin B, a passionate Electronics and Communication Engineering student at Saveetha Engineering College. I am deeply interested in VLSI, Embedded Systems, and simulation-based projects. With a disciplined work ethic, a strong focus on time management, and a love for learning, I always strive to bring creativity and precision to my work. I also enjoy cycling, volunteering, and connecting with mentors and peers to grow both personally and professionally.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="achievements">
-    <div class="container card">
-      <h2>Achievements</h2>
+<section id="skills">
+  <div class="container card">
+    <h2>Skills</h2>
+
+    <div class="card">
+      <h3>Programming Languages</h3>
       <ul>
-        <li>Completed NPTEL courses in Cloud Computing and IoT</li>
-        <li>Internship at UNIQ Technologies</li>
-        <li>Presented seminars and coordinated college workshops</li>
-        <li>9.20 CGPA till 5th semester</li>
+        <li>C</li>
+        <li>Python</li>
+        <li>Java (Basic)</li>
       </ul>
     </div>
-  </section>
 
-  <section class="resume">
-    <div class="container card">
-      <h2>Resume</h2>
-      <p>Click the button below to view or download my resume:</p>
-      <a href="resume.pdf" download target="_blank">📄 Download Resume</a>
+    <div class="card">
+      <h3>Tools & Technologies</h3>
+      <ul>
+        <li>Cadence Virtuoso (VLSI)</li>
+        <li>LTSpice, Scilab (Simulation)</li>
+        <li>Proteus, Arduino IDE (Embedded Systems)</li>
+        <li>Vivado (HDL - Verilog/VHDL basics)</li>
+      </ul>
     </div>
-  </section>
 
-  <section class="contact">
-    <div class="container card">
-      <h2>Contact</h2>
-      <p><strong>📍 Location:</strong> Pollachi, Tamil Nadu, India</p>
-      <p><strong>📧 Email:</strong> dhanubalagesan@gmail.com</p>
-      <p><strong>🔗 LinkedIn:</strong> <a href="https://www.linkedin.com/in/dhanu-dharvin-7352b1261/" target="_blank">View Profile</a></p>
-      <p><strong>💻 GitHub:</strong> <a href="https://github.com/dhanu0503" target="_blank">Explore Projects</a></p>
-      <p><strong>📞 Phone:</strong> +91 99528 16664</p>
+    <div class="card">
+      <h3>Projects & Hardware</h3>
+      <ul>
+        <li>Human/Line Following Robot</li>
+        <li>Bluetooth Controlled RC Car</li>
+        <li>Obstacle Avoiding Robot</li>
+      </ul>
     </div>
-  </section>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Dhanu Dharvin B | All Rights Reserved</p>
+    <div class="card">
+      <h3>Soft Skills</h3>
+      <ul>
+        <li>100% Attendance Record</li>
+        <li>Time Management & Punctuality</li>
+        <li>Leadership & Volunteering</li>
+        <li>Workshop and Seminar Coordination</li>
+      </ul>
     </div>
-  </footer>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="container card">
+    <h2>Achievements</h2>
+    <ul>
+      <li>Completed NPTEL courses in Cloud Computing and IoT</li>
+      <li>Internship at UNIQ Technologies</li>
+      <li>Presented seminars and coordinated college workshops</li>
+      <li>9.20 CGPA till 5th semester</li>
+    </ul>
+  </div>
+</section>
+
+<section id="resume" class="resume">
+  <div class="container card">
+    <h2>Resume</h2>
+    <p>Click the button below to view or download my resume:</p>
+    <a href="resume.pdf" download target="_blank">📄 Download Resume</a>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container card">
+    <h2>Contact</h2>
+    <p><strong>📍 Location:</strong> Pollachi, Tamil Nadu, India</p>
+    <p><strong>📧 Email:</strong> dhanubalagesan@gmail.com</p>
+    <p><strong>🔗 LinkedIn:</strong> <a href="https://www.linkedin.com/in/dhanu-dharvin-7352b1261/" target="_blank">View Profile</a></p>
+    <p><strong>💻 GitHub:</strong> <a href="https://github.com/dhanu0503" target="_blank">Explore Projects</a></p>
+    <p><strong>📞 Phone:</strong> +91 99528 16664</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Dhanu Dharvin B | All Rights Reserved</p>
+  </div>
+</footer>
+
+<!-- Magic particles script -->
+<script>
+  const canvas = document.getElementById('magic-background');
+  const ctx = canvas.getContext('2d');
+
+  let particlesArray;
+
+  const colors = [
+    'rgba(0, 242, 255, 0.7)',
+    'rgba(79, 172, 254, 0.7)',
+    'rgba(163, 216, 255, 0.7)',
+    'rgba(255, 255, 255, 0.3)'
+  ];
+
+  const maxSize = 3;
+  const minSize = 0.5;
+  const numberOfParticles = 100;
+
+  window.addEventListener('resize', function(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    init();
+  });
+
+  function Particle(x, y, dx, dy, size, color){
+    this.x = x;
+    this.y = y;
+    this.dx = dx;
+    this.dy = dy;
+    this.size = size;
+    this.color = color;
+
+    this.update = function(){
+      this.x += this.dx;
+      this.y += this.dy;
+
+      if(this.x + this.size > innerWidth || this.x - this.size < 0){
+        this.dx = -this.dx;
+      }
+
+      if(this.y + this.size > innerHeight || this.y - this.size < 0){
+        this.dy = -this.dy;
+      }
+
+      this.draw();
+    };
+
+    this.draw = function(){
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    };
+  }
+
+  function init(){
+    particlesArray = [];
+    for(let i = 0; i < numberOfParticles; i++){
+      let size = Math.random() * (maxSize - minSize) + minSize;
+      let x = Math.random() * (innerWidth - size * 2) + size;
+      let y = Math.random() * (innerHeight - size * 2) + size;
+      let dx = (Math.random() - 0.5) * 0.5;
+      let dy = (Math.random() - 0.5) * 0.5;
+      let color = colors[Math.floor(Math.random() * colors.length)];
+      particlesArray.push(new Particle(x, y, dx, dy, size, color));
+    }
+  }
+
+  function animate(){
+    requestAnimationFrame(animate);
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+
+    for(let i = 0; i < particlesArray.length; i++){
+      particlesArray[i].update();
+    }
+  }
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  init();
+  animate();
+</script>
 
 </body>
 </html>
